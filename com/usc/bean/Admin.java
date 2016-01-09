@@ -3,7 +3,7 @@ package com.usc.bean;
 import java.io.Serializable;
 
 /**
- * ¹ÜÀíÔ±±í
+ * ç®¡ç†å‘˜å®ä½“ç±»
  * 
  * @author zhao
  * 
@@ -11,10 +11,10 @@ import java.io.Serializable;
 public class Admin implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;// Ö÷¼ü
-	private String name;// ĞÕÃû
-	private String password;// ÃÜÂë
-	private String tel;// µç»°
+	private int id;// ä¸»é”®
+	private String name;// ç”¨æˆ·å
+	private String password;// å¯†ç 
+	private String tel;// ç”µè¯
 
 	public int getId() {
 		return id;

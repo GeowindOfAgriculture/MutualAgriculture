@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * ¶©µ¥±í
+ * è®¢å•å®ä½“ç±»
  * 
  * @author zhao
  * 
@@ -12,15 +12,15 @@ import java.sql.Date;
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;// Ö÷¼ü
-	private int num;// ÊıÁ¿
-	private double commission;// Ó¶½ğ
-	private String state;// ×´Ì¬
-	private Date endTime;// ½áÊøÊ±¼ä
-	private Date startTime;// ¿ªÊ¼Ê±¼ä
-	private int farmlandId;// Å©Ìïid
-	private int agentId;// ¾­¼ÍÈËid
-	private int machineOwnerId;// Å©»úÖ÷id
+	private int id;// ä¸»é”®
+	private int num;// æ•°é‡
+	private double commission;// ä½£é‡‘
+	private String state;//çŠ¶æ€×´
+	private Date endTime;// æˆªè‡³æ—¶é—´
+	private Date startTime;// å¼€å§‹æ—¶é—´
+	private int farmlandId;// å†œç”°id
+	private int agentId;// ç»çºªäººid
+	private int machineOwnerId;// å†œæœºä¸»id
 
 	public int getId() {
 		return id;

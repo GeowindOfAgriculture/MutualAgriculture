@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Å©Ìï±í
+ * å†œç”°å®ä½“ç±»
  * 
  * @author zhao
  * 
@@ -12,15 +12,15 @@ import java.sql.Date;
 public class Farmland implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;// Ö÷¼ü
-	private int farmlandPicId;// Å©ÌïÍ¼Æ¬id
-	private String location;// Î»ÖÃ
-	private int size;// ³ß´ç
-	private int maturity;// ³ÉÊì¶È
-	private double perPrice;// µ¥¼Û
-	private String type;// ÖÖÀà
-	private String description;// ÃèÊö
-	private Date harvestTime;// Ô¤¼ÆÊÕ¸îÊ±¼ä
+	private int id;// ä¸»é”®
+	private int farmlandPicId;// å†œç”°å›¾ç‰‡id
+	private String location;// å†œç”°åœ°ç†ä½ç½®
+	private int size;// å†œç”°å¤§å°
+	private int maturity;// æˆç†Ÿåº¦
+	private double perPrice;// å•ä»·
+	private String type;// ç§ç±»
+	private String description;// å†œç”°æè¿°
+	private Date harvestTime;// é¢„è®¡æ”¶å‰²æ—¶é—´
 
 	public int getId() {
 		return id;

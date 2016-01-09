@@ -82,4 +82,80 @@ public final class Constant {
 	/** 农机与农机主关系表 预留字段3 */
 	public static final String REMARKS3_RELATIONMANDMO = "remarks3";
 
+	// Admin
+	/** 管理员id */
+	public static final String ID_ADMIN = "id";
+	/** 管理员用户名 */
+	public static final String NAME_ADMIN = "name";
+	/** 管理员密码 */
+	public static final String PASSWORD_ADMIN = "password";
+	/** 管理员电话 */
+	public static final String TEL_ADMIN = "tel";
+
+	// Agent
+	/** 经纪人id */
+	public static final String ID_AGENT = "id";
+	/** 经纪人地址 */
+	public static final String LOCATION_AGENT = "location";
+	/** 经纪人用户名 */
+	public static final String NAME_AGENT = "name";
+	/** 经纪人密码 */
+	public static final String PASSWORD_AGENT = "password";
+	/** 经纪人电话 */
+	public static final String TEL_AGENT = "tel";
+
+	// Farmland
+	/** 农田id */
+	public static final String ID_FARMLAND = "id";
+	/** 农田描述 */
+	public static final String DESCRIPTION_FARMLAND = "description";
+	/** 农田图片id */
+	public static final String FARMLANDPICID_FARMLAND = "farmlandPicId";
+	/** 农田预计收割时间 */
+	public static final String HARVESTTIME_FARMLAND = "harvestTime";
+	/** 农田地址 */
+	public static final String LOCATION_FARMLAND = "location";
+	/** 农田成熟度 */
+	public static final String MATURITY_FARMLAND = "maturity";
+	/** 农田单价 */
+	public static final String PERPRICE_FARMLAND = "perPrice";
+	/** 农田大小 */
+	public static final String SIZE_FARMLAND = "size";
+	/** 农田种类 */
+	public static final String TYPE_FARMLAND = "type";
+
+	// Log
+	/** 日志id */
+	public static final String ID_LOG = "id";
+	/** 管理员id */
+	public static final String ADMINID_LOG = "adminId";
+	/** 农机主id */
+	public static final String MACHINEOWNERID_LOG = "machineOwnerId";
+	/** 操作时间 */
+	public static final String OPTIME_LOG = "optime";
+	/** 订单id */
+	public static final String ORDERID_LOG = "orderId";
+	/** 操作记录 */
+	public static final String RECORD_LOG = "record";
+
+	// Order
+	/** 订单id */
+	public static final String ID_ORDER = "id";
+	/** 经纪人id */
+	public static final String AGENTID_ORDER = "agentId";
+	/** 佣金 */
+	public static final String COMMISSION_ORDER = "commission";
+	/** 截止日期 */
+	public static final String ENDTIME_ORDER = "endTime";
+	/** 农田id */
+	public static final String FARMLANDID_ORDER = "farmlandId";
+	/** 农机主id */
+	public static final String MACHINEOWNERID_ORDER = "machineOwnerId";
+	/** 数量 */
+	public static final String NUM_ORDER = "num";
+	/** 开始日期 */
+	public static final String STARTTME_ORDER = "startTime";
+	/** 状态 */
+	public static final String STATE_ORDER = "state";
+
 }

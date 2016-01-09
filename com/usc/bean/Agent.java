@@ -3,7 +3,7 @@ package com.usc.bean;
 import java.io.Serializable;
 
 /**
- * 经纪人实体类
+ * 缁忕邯浜哄疄浣撶被
  * 
  * @author zhao
  * 
@@ -11,11 +11,11 @@ import java.io.Serializable;
 public class Agent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private String name;
-	private String password;
-	private String location;
-	private String tel;
+	private int id;// 涓婚敭
+	private String name;// 濮撳悕
+	private String password;// 瀵嗙爜
+	private String location;// 鍦板潃
+	private String tel;// 鐢佃瘽
 
 	public int getId() {
 		return id;

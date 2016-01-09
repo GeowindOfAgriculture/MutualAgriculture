@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * ÈÕÖ¾±í
+ * æ—¥å¿—å®ä½“ç±»
  * 
  * @author zhao
  */
 public class Log implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;// Ö÷¼ü
-	private int adminId;// ¹ÜÀíÔ±id
-	private int orderId;// ¶©µ¥id
-	private int machineOwnerId;// Å©»úÖ÷id
-	private Date optime;// ²Ù×÷Ê±¼ä
-	private String record;// ²Ù×÷¼ÇÂ¼
+	private int id;// ä¸»é”®
+	private int adminId;// ç®¡ç†å‘˜id
+	private int orderId;// è®¢å•id
+	private int machineOwnerId;// å†œæœºä¸»id
+	private Date optime;// æ“ä½œæ—¶é—´
+	private String record;// æ“ä½œè®°å½•
 
 	public int getId() {
 		return id;
