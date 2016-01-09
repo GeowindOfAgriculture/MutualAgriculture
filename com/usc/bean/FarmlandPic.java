@@ -12,6 +12,10 @@ import java.io.Serializable;
  * @school USC
  */
 public class FarmlandPic implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String url;// 农机图片路径
 	private String remarks1;

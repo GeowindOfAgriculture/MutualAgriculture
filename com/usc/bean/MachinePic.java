@@ -12,6 +12,10 @@ import java.io.Serializable;
  * @school USC
  */
 public class MachinePic implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;// 主键
 	private String url;// 农机图片路径
 	private String remarks1;

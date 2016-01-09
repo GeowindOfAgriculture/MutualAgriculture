@@ -12,6 +12,10 @@ import java.io.Serializable;
  * @school USC
  */
 public class RelationMandMO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private int machineId;// 农机id
 	private int machineOwnerId;// 农机主id

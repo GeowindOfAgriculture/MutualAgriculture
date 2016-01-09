@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @blog gaosililin.iteye.com
  * @school USC
  */
+@SuppressWarnings("serial")
 public class MachineOwner implements Serializable {
 	private int id;
 	private String name;// 姓名
