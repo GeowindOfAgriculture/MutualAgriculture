@@ -4,37 +4,46 @@ import java.util.List;
 
 import com.usc.bean.Agent;
 import com.usc.bean.Order;
-
+/**
+ * 经纪人操作订单相关接口
+ * @author zhao
+ *
+ */
 public interface AgentDoOrdersDao {
 	/**
 	 * 经纪人获取发布且完成的订单
 	 * 
 	 * @return
 	 */
-	public List<Order> getOrders_PubAndUnCom(Agent agent);
+	public List<Order> getOrders_PubAndUnCom(int agentId);
 
 	/**
 	 * 经纪人获取发布但未完成的订单
 	 * 
 	 * @return
 	 */
-	public List<Order> getOrders_PubAndCom(Agent agent);
+	public List<Order> getOrders_PubAndCom(int agentId);
 	
 	/**
 	 * 经纪人发布订单
-	 * @param agent 经纪人
 	 * @param order 订单
 	 * @return
 	 */
-	public boolean publishOrder(Agent agent, Order order);
+	public boolean publishOrder( Order order);
 	/**
 	 * 撤销订单
 	 * 
-	 * @param agent
-	 *            经纪人
-	 * @param order
-	 *            订单
+	 * @param agentId
+	 *            经纪人id
+	 * @param orderId
+	 *            订单id
 	 * @return
 	 */
-	public boolean cancelOrder(Agent agent, Order order);
+	public boolean cancelOrder(int agentId, int orderId);
+	/**
+	 * 获取经纪人订单历史纪录(包含完成和未完成的订单)
+	 * @param agentId 
+	 * @return
+	 */
+	public List<Order> getOrdersHistory(int agentId);
 }

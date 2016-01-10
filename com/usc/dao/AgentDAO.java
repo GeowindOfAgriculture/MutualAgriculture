@@ -8,7 +8,7 @@ import com.usc.bean.Agent;
  * @author zhao
  * 
  */
-public interface AgentDAO {
+public interface AgentDao {
 	/**
 	 * 登陆
 	 * 

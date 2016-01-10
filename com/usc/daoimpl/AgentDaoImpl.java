@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.usc.bean.Agent;
-import com.usc.dao.AgentDAO;
+import com.usc.dao.AgentDao;
 import com.usc.util.Constant;
 import com.usc.util.DBHelper;
 
@@ -16,7 +16,7 @@ import com.usc.util.DBHelper;
  * @author zhao
  * 
  */
-public class AgentDaoImpl implements AgentDAO {
+public class AgentDaoImpl implements AgentDao {
 
 	@Override
 	public boolean login(String username, String password) {
