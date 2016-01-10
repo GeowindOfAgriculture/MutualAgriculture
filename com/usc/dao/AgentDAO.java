@@ -96,5 +96,5 @@ public interface AgentDAO {
 	 * 更新经纪人信息
 	 * @return
 	 */
-	public boolean updateAgentInfo(String username);
+	public boolean updateAgentInfo(Agent agent);
 }

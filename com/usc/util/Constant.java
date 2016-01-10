@@ -10,6 +10,27 @@ package com.usc.util;
  * @school USC
  */
 public final class Constant {
+	/** 管理员表*/
+	public static final String TB_ADMINS="admins";
+	/** 经纪人表*/
+	public static final String TB_AGENT="agent";
+	/** 农田表*/
+	public static final String TB_FARMLAND="farmland";
+	/** 农田图片表*/
+	public static final String TB_FARMLANDPIC="farmlangpic";
+	/** 日志表*/
+	public static final String TB_LOGS="logs";
+	/** 机器表*/
+	public static final String TB_MACHINE="machine";
+	/** 农机主表*/
+	public static final String TB_MACHINEOWNER="machineowner";
+	/** 农机图片表*/
+	public static final String TB_MACHINEPIC="machinepic";
+	/** 订单表*/
+	public static final String TB_ORDERS="orders";
+	/** 农机和农机主关系表*/
+	public static final String TB_RELATIONMANDMO="relationmandmo";
+	
 	// FarmlandPic FARMLANDPIC
 	/** 农机图片表 ID */
 	public static final String ID_FARMLANDPIC = "id";
