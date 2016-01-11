@@ -15,7 +15,7 @@ public class Order implements Serializable {
 	private int id;// 主键
 	private int num;// 数量
 	private double commission;// 佣金
-	private String state;//状态״
+	private String state;// 状态״
 	private Date endTime;// 截至时间
 	private Date startTime;// 开始时间
 	private int farmlandId;// 农田id
@@ -96,10 +96,9 @@ public class Order implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", num=" + num + ", commission="
-				+ commission + ", state=" + state + ", endTime=" + endTime
-				+ ", farmlandId=" + farmlandId + ", agentId=" + agentId
-				+ ", machineOwnerId=" + machineOwnerId + "]";
+		return "Orders [id=" + id + ", num=" + num + ", commission=" + commission + ", state=" + state + ", endTime="
+				+ endTime + ", farmlandId=" + farmlandId + ", agentId=" + agentId + ", machineOwnerId=" + machineOwnerId
+				+ "]";
 	}
 
 }

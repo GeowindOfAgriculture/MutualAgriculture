@@ -178,5 +178,17 @@ public final class Constant {
 	public static final String STARTTME_ORDER = "startTime";
 	/** 状态 */
 	public static final String STATE_ORDER = "state";
+	
+	//数据库状态
+	/**数据库订单状态   被推送*/
+	public static final String STATE_ORDER_PUSHED = "pushed";
+	/**数据库订单状态  完成*/
+	public static final String STATE_ORDER_COMPLETE= "complete";
+	/**数据库订单状态 待审核 */
+	public static final String STATE_ORDER_PENDING= "Pending";
+	/**数据库订单状态  待完成 */
+	public static final String STATE_ORDER_ACCEPT= "accept";
+	/**数据库订单状态  待分配 */
+	public static final String STATE_ORDER_ASSIGNMENT= "assignment";
 
 }
