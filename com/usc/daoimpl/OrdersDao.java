@@ -93,7 +93,7 @@ public class OrdersDao {
 			if (order.getState().equals(Constant.STATE_ORDER_PUSHED)) {
 				// 拼接sql
 				String sql = "UPDATE " + Constant.TB_ORDERS + " SET " + Constant.STATE_ORDER + " = '"
-						+ Constant.STATE_ORDER_ACCEPT + "' where " + Constant.ID_ORDER + " = " + order.getId()+";";
+						+ Constant.STATE_ORDER_ACCEPT + "' where " + Constant.ID_ORDER + " = " + order.getId() + ";";
 				// 修改表的字段值
 				succeed = SQlUtil.getSQLUtil().update(sql, connection);
 			}
@@ -129,4 +129,46 @@ public class OrdersDao {
 		return succeed;
 	}
 
+	/**
+	 * 管理员获取全部订单
+	 * 
+	 * @param category
+	 *            类别：已完成，未审核，委派，等类别
+	 * @return 订单的队列集合
+	 */
+	public ArrayList<Order> selectAllOrder(String category) {
+		ArrayList<Order> orders = new ArrayList<>();
+		String sql = "";
+		// 无条件查询
+		if (category == null) {// 查询全部状态的订单
+			sql = "select * from  " + Constant.TB_ORDERS + " ;";
+		} else if (category.equals(Constant.STATE_ORDER_PUSHED)) {// 查询被委派状态的订单
+			sql = "select * from  " + Constant.TB_ORDERS + " where " + Constant.STATE_ORDER + " = '" + category + "';";
+		} else if (category.equals(Constant.STATE_ORDER_ACCEPT)) {// 查询待完成状态订单
+			sql = "select * from  " + Constant.TB_ORDERS + " where " + Constant.STATE_ORDER + " = '" + category + "';";
+		} else if (category.equals(Constant.STATE_ORDER_ASSIGNMENT)) {// 查询待分配状态的订单
+			sql = "select * from  " + Constant.TB_ORDERS + " where " + Constant.STATE_ORDER + " = '" + category + "';";
+		} else if (category.equals(Constant.STATE_ORDER_COMPLETE)) {// 查询完成状态的订单
+			sql = "select * from  " + Constant.TB_ORDERS + " where " + Constant.STATE_ORDER + " = '" + category + "';";
+		} else if (category.equals(Constant.STATE_ORDER_PENDING)) {// 查询审核中状态的订单
+			sql = "select * from  " + Constant.TB_ORDERS + " where " + Constant.STATE_ORDER + " = '" + category + "';";
+		} else {// 其他情况 查询全部
+			sql = "select * from  " + Constant.TB_ORDERS + " ;";
+		}
+System.out.println("sql:"+sql);
+		orders = SQlUtil.getSQLUtil().getOrders(sql, connection);
+		return orders;
+	}
+
+	/**
+	 * 管理员查询全部订单 不附带条件的查询
+	 * 
+	 * @return 订单的队列集合
+	 */
+	public ArrayList<Order> selectAllOrder() {
+
+		return selectAllOrder(null);
+	}
+
+//	public ArrayList<Order> select
 }

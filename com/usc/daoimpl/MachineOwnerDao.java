@@ -95,38 +95,35 @@ public class MachineOwnerDao {
 		if (machineOwner == null) {
 			canRegister = false;
 		} else {
-			// 判断是否改电话号码已被注册了
-			if (isExist(machineOwner.getTel())) {
-				canRegister = false;
-			} else {
-				// 拼接sql
-				String sql = "insert into " + Constant.TB_MACHINEOWNER + " (" + Constant.NAME_MACHINEOWNER + ","
-						+ Constant.PASSWORD_MACHINEOWNER + "," + Constant.LOCATION_MACHINEOWNER + ","
-						+ Constant.TEL_MACHINEOWNER + "," + Constant.REMARKS1_MACHINEOWNER + ","
-						+ Constant.REMARKS2_MACHINEOWNER + "," + Constant.REMARKS3_MACHINEOWNER + " ) values('"
-						+ machineOwner.getName() + "','" + machineOwner.getPassword() + "','"
-						+ machineOwner.getLocation() + "','" + machineOwner.getTel() + "','"
-						+ machineOwner.getRemarks1() + "','" + machineOwner.getRemarks2() + "','"
-						+ machineOwner.getRemarks3() + "');";
-				try {
-					// 获取链接
-					Statement statement = connection.createStatement();
-					// 向数据库中插入数据
-					int update = statement.executeUpdate(sql);
-					// 判断受影响的行数，大于0则是插入成功
-					if (update > 0) {
-						canRegister = true;
-					} else {
-						canRegister = false;
-					}
-
-				} catch (Exception e) {
-					e.printStackTrace();
+			//action中以判电话号码是否已经存在，这里不必判断了
+			// 拼接sql
+			String sql = "insert into " + Constant.TB_MACHINEOWNER + " (" + Constant.NAME_MACHINEOWNER + ","
+					+ Constant.PASSWORD_MACHINEOWNER + "," + Constant.LOCATION_MACHINEOWNER + ","
+					+ Constant.TEL_MACHINEOWNER + "," + Constant.REMARKS1_MACHINEOWNER + ","
+					+ Constant.REMARKS2_MACHINEOWNER + "," + Constant.REMARKS3_MACHINEOWNER + " ) values('"
+					+ machineOwner.getName() + "','" + machineOwner.getPassword() + "','"
+					+ machineOwner.getLocation() + "','" + machineOwner.getTel() + "','"
+					+ machineOwner.getRemarks1() + "','" + machineOwner.getRemarks2() + "','"
+					+ machineOwner.getRemarks3() + "');";
+			try {
+				// 获取链接
+				Statement statement = connection.createStatement();
+				// 向数据库中插入数据
+				int update = statement.executeUpdate(sql);
+				// 判断受影响的行数，大于0则是插入成功
+				if (update > 0) {
+					canRegister = true;
+				} else {
 					canRegister = false;
 				}
 
-				canRegister = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				canRegister = false;
 			}
+
+			canRegister = true;
+		
 
 		}
 
@@ -180,29 +177,24 @@ public class MachineOwnerDao {
 		if (machineOwner == null) {
 			isLogin = false;
 		} else {
-			// 用户名已经存在
-			if (useNameIsExist(machineOwner.getName())) {
-				// 拼接sql
-				String sql = "SELECT * FROM " + Constant.TB_MACHINEOWNER + " where " + Constant.NAME_MACHINEOWNER
-						+ " = '" + machineOwner.getName() + " ' and " + Constant.PASSWORD_MACHINEOWNER + " ='"
-						+ machineOwner.getPassword() + "';";
-				try {
-					// 获取链接
-					Statement statement = connection.createStatement();
-					// 向数据库查询并获取结果集
-					ResultSet resultSet = statement.executeQuery(sql);
-					// 结果集存在记录，则登陆成功
-					if (resultSet.next()) {
-						isLogin = true;
-					} else {
-						isLogin = false;
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
+			// action 中判断该用户是否存在，不必在判断
+			// 拼接sql
+			String sql = "SELECT * FROM " + Constant.TB_MACHINEOWNER + " where " + Constant.TEL_MACHINEOWNER + " = '"
+					+ machineOwner.getTel() + " ' and " + Constant.PASSWORD_MACHINEOWNER + " ='"
+					+ machineOwner.getPassword() + "';";
+			try {
+				// 获取链接
+				Statement statement = connection.createStatement();
+				// 向数据库查询并获取结果集
+				ResultSet resultSet = statement.executeQuery(sql);
+				// 结果集存在记录，则登陆成功
+				if (resultSet.next()) {
+					isLogin = true;
+				} else {
 					isLogin = false;
 				}
-				// 用户名不存在
-			} else {
+			} catch (SQLException e) {
+				e.printStackTrace();
 				isLogin = false;
 			}
 		}
@@ -210,22 +202,22 @@ public class MachineOwnerDao {
 	}
 
 	/**
-	 * 根据用户名判断是否存在该用户
+	 * 根据用户手机号判断是否存在该用户
 	 * 
-	 * @param name
+	 * @param tel
 	 *            用户名
 	 * @return 返回该用户名是否存在
 	 */
-	private boolean useNameIsExist(String name) {
+	public boolean useTelIsExist(String tel) {
 		// 是否存在的临时变量
 		boolean isExist = false;
 		// 名字为空
-		if (name == null || name.equals("")) {
+		if (tel == null || tel.equals("")) {
 			isExist = false;
 		} else {
 			// 拼接sql
-			String sql = "select * from " + Constant.TB_MACHINEOWNER + " where " + Constant.NAME_MACHINEOWNER + "='"
-					+ name.trim() + "';";
+			String sql = "select * from " + Constant.TB_MACHINEOWNER + " where " + Constant.TEL_MACHINEOWNER + "='"
+					+ tel.trim() + "';";
 			try {
 				// 链接数据库
 				Statement statement = connection.createStatement();

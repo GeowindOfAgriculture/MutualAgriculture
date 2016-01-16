@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<!-- 设置修改配置时候自动启动 -->
-	<constant name="struts.devMode" value="true" />
-	<!-- 动态方法访问 -->
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
-	<!-- 配置web访问字符集编码标签 所有配置为UTF-8字符集 -->
-	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
-	<!-- 配置请求的后缀，默认拦截.action请求 -->
-	<constant name="struts.action.extension" value="do,action,,"></constant>
-	<!-- 设置浏览器是否缓存静态内容 ，开发状态时候设置为false 避免出现无法更新，发布时候可设置为true -->
-	<constant name="struts.serve.static.browserCache" value="false"></constant>
-	<!-- 当Struts.xml配置文件发生修改是，系统从新加载配置项 -->
-	<constant name="struts.configuration.xml.reload" value="true"></constant>
-	<!-- 在开发模式下 ，打印出更加详细的错误信息 -->
-	<constant name="struts.devMode" value="true"></constant>
-	
+	<!-- 导入基本的设置文件 -->
+	<include file="action_MachineOwner.xml"></include>
+	<include file="action_machine.xml"></include>
+	<include file="configuration.xml"></include>
+
 </struts>    

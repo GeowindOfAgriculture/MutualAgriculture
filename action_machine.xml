@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!--  -->
+	<!-- 使用返回寄送字符形式 ， -->
+	<package name="machine" extends="json-default" namespace="/"> <!--需要将struts-default改为json-default -->
+		<!-- 登陆 -->
+		<action name="logina" class="com.usc.action.Machine" method="logina">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		
+	</package>
+
+
+</struts>    

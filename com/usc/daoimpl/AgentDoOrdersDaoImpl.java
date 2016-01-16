@@ -151,14 +151,16 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 
 			// 订单已被农机主接受，不能取消
 			// isOrderAcceptedByMachineOwner()
-			if (isOrderAcceptedByMachineOwner()) {
-				return false;
-			} else {
-				int i = pstmt.executeUpdate();
-				connection.commit();
-				if (i == 1)
-					return true;
-			}
+//			if (isOrderAcceptedByMachineOwner()) {
+//				return false;
+//			} else {
+//				int i = pstmt.executeUpdate();
+//				connection.commit();
+//				if (i == 1)
+//					return true;
+//			}
+			
+			
 		} catch (SQLException e) {
 			try {
 				connection.rollback();
