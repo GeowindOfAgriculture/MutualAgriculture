@@ -4,6 +4,18 @@
 	<!-- 农机主action操作 -->
 	<!-- 使用返回寄送字符形式 ， -->
 	<package name="machine" extends="json-default" namespace="/"> <!--需要将struts-default改为json-default -->
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name="encodingInterceptor"
+				class="com.usc.interceptor.EncodingInterceptor"/>
+			<interceptor-stack name="encodingTinterceptors">
+				<interceptor-ref name="encodingInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认拦截器 -->
+		<default-interceptor-ref name="encodingTinterceptors"/>
+
 		<!-- 农机主登陆 -->
 		<action name="login" class="com.usc.action.MachineOwnerAction"
 			method="login">
@@ -29,7 +41,7 @@
 			method="selectOrderHistory">
 			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
 		</action>
-		<!-- 农机主接收或者拒绝被推送的订单-->
+		<!-- 农机主接收或者拒绝被推送的订单 -->
 		<action name="MOIsAccept" class="com.usc.action.MachineOwnerAction"
 			method="MOIsAccept">
 			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
