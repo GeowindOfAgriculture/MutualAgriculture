@@ -40,7 +40,7 @@ public class OrdersDao {
 	 */
 	public ArrayList<Order> selectOrderHistory(MachineOwner machineOwner) {
 		// 装在历史订单的集合队列
-		ArrayList<Order> orders = new ArrayList<>();
+		ArrayList<Order> orders = new ArrayList<Order>();
 		// 农机主实体不为null且id不为0
 		if (machineOwner != null && machineOwner.getId() != 0) {
 			// 拼接sql
@@ -64,7 +64,7 @@ public class OrdersDao {
 	 */
 	public ArrayList<Order> selectPushedOrder(MachineOwner machineOwner) {
 		// 装在历史订单的集合队列
-		ArrayList<Order> orders = new ArrayList<>();
+		ArrayList<Order> orders = new ArrayList<Order>();
 		// 农机主对象不为空且id不为0
 		if (machineOwner != null && machineOwner.getId() != 0) {
 			// 拼接sql

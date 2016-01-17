@@ -110,7 +110,7 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	@Override
-	public boolean isAgentRegisted(String username) {
+	public boolean isAgentUsernameRegisted(String username) {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -133,12 +133,33 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	@Override
+	public boolean isAgentTelRegisted(String tel) {
+		Connection connection = DBHelper.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from agent where tel=?";
+		try {
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, tel);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBHelper.closeAll(rs, pstmt, connection);
+		}
+		return false;
+	}
+
+	@Override
 	public boolean updateAgentInfo(Agent agent) {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String updateSql = "update agent set name=?,password=?,location=?,tel=?"
+		String updateSql = "update agent set name=?,password=?,location=?"
 				+ " where id=?";
 
 		try {
@@ -147,8 +168,7 @@ public class AgentDaoImpl implements AgentDao {
 			pstmt.setString(1, agent.getName());
 			pstmt.setString(2, agent.getPassword());
 			pstmt.setString(3, agent.getLocation());
-			pstmt.setString(4, agent.getTel());
-			pstmt.setInt(5, agent.getId());
+			pstmt.setInt(4, agent.getId());
 			// 修改信息前，判断用户名是否已被注册
 			// if(!isAgentRegisted(agent.getName())){
 			int i = pstmt.executeUpdate();
@@ -179,7 +199,5 @@ public class AgentDaoImpl implements AgentDao {
 		}
 		return false;
 	}
-
-	
 
 }

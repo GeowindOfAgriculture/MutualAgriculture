@@ -37,11 +37,17 @@ public interface AgentDao {
 	public Agent getAgentInfoById(int id);
 
 	/**
-	 * 查看经纪人是否被注册，用户名具有唯一性
+	 * 查看经纪人用户名是否被注册
 	 * 
 	 * @return
 	 */
-	public boolean isAgentRegisted(String username);
+	public boolean isAgentUsernameRegisted(String username);
+	/**
+	 * 查看经纪人手机号是否被注册过，手机号具有唯一性
+	 * @param tel
+	 * @return
+	 */
+	public boolean isAgentTelRegisted(String tel);
 
 	/**
 	 * 更新经纪人信息

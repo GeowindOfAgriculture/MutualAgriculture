@@ -81,7 +81,7 @@ public class SQlUtil {
 	 * @return 返回订单的队列
 	 */
 	public ArrayList<Order> getOrders(String sql, Connection connection) {
-		ArrayList<Order> orders = new ArrayList<>();
+		ArrayList<Order> orders = new ArrayList<Order>();
 		try {
 			// 链接数据库
 			Statement statement = connection.createStatement();

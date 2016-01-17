@@ -11,18 +11,18 @@ package com.usc.util;
  */
 public final class Constant {
 	
-	//订单状态常量
-	/** 订单还未被管理员委派给农机主，属于初始状态---审核中 */
-	public static final String ORDER_STATE_UNDELEGATE = "审核中";
-	/** 订单已被管理员委派，但未被农机主接受 */
-	public static final String ORDER_STATE_DELEGATING = "委派中";
-	/** 订单被接收但未完成 */
-	public static final String ORDER_STATE_ACCEPTED_UNACCOM = "已被接受但未完成";
-	/** 订单被接受且已经完成 */
-	public static final String ORDER_STATE_ACCEPTED_ACCOM = "已被接受且完成";
-
-	
-	
+//	//订单状态常量
+//	/** 订单还未被管理员委派给农机主，属于初始状态---审核中 */
+//	public static final String ORDER_STATE_UNDELEGATE = "审核中";
+//	/** 订单已被管理员委派，但未被农机主接受 */
+//	public static final String ORDER_STATE_DELEGATING = "委派中";
+//	/** 订单被接收但未完成 */
+//	public static final String ORDER_STATE_ACCEPTED_UNACCOM = "已被接受但未完成";
+//	/** 订单被接受且已经完成 */
+//	public static final String ORDER_STATE_ACCEPTED_ACCOM = "已被接受且完成";
+//
+//	
+//	
 	/** 管理员表 */
 	public static final String TB_ADMINS = "admins";
 	/** 经纪人表 */
@@ -30,7 +30,7 @@ public final class Constant {
 	/** 农田表 */
 	public static final String TB_FARMLAND = "farmland";
 	/** 农田图片表 */
-	public static final String TB_FARMLANDPIC = "farmlangpic";
+	public static final String TB_FARMLANDPIC = "farmlandpic";
 	/** 日志表 */
 	public static final String TB_LOGS = "logs";
 	/** 机器表 */

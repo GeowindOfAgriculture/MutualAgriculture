@@ -6,5 +6,5 @@ package com.usc.dao;
  * @Description  日志记录数据访问接口
  */
 public interface LogsDao {
-
+	
 }

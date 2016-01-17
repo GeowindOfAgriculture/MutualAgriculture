@@ -25,12 +25,7 @@ public class TestAgentDaoImpl {
 	
 	AgentDao agentDAO = new AgentDaoImpl();
 	AgentDoOrdersDao agentDoOrdersDao=new AgentDoOrdersDaoImpl();
-	@Test
-	public void testIsAgentRegisted() {
-
-		boolean flag = agentDAO.isAgentRegisted("zhaoxin1");
-		assertEquals(false, flag);
-	}
+	
 
 	@Test
 	public void testRegist() {
@@ -75,7 +70,6 @@ public class TestAgentDaoImpl {
 		order.setMachineOwnerId(1);
 		order.setNum(10);
 		order.setStartTime(new Date(new java.util.Date().getTime()));
-		order.setState(Constant.ORDER_STATE_ACCEPTED_ACCOM);
 		
 		
 		agentDoOrdersDao.publishOrder( order);

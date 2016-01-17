@@ -11,14 +11,14 @@ import com.usc.bean.Order;
  */
 public interface AgentDoOrdersDao {
 	/**
-	 * 经纪人获取发布且完成的订单
+	 * 经纪人获取发布且未完成的订单
 	 * 
 	 * @return
 	 */
 	public List<Order> getOrders_PubAndUnCom(int agentId);
 
 	/**
-	 * 经纪人获取发布但未完成的订单
+	 * 经纪人获取发布且完成的订单
 	 * 
 	 * @return
 	 */

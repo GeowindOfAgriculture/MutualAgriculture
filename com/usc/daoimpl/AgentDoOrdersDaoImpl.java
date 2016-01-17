@@ -10,6 +10,7 @@ import java.util.List;
 import com.usc.bean.Agent;
 import com.usc.bean.Order;
 import com.usc.dao.AgentDoOrdersDao;
+import com.usc.dao.OrderDao;
 import com.usc.util.Constant;
 import com.usc.util.DBHelper;
 
@@ -28,7 +29,7 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from orders where state!= '"
-				+ Constant.ORDER_STATE_ACCEPTED_ACCOM + "' and agentId=?";
+				+ Constant.STATE_ORDER_COMPLETE + "' and agentId=?";
 		try {
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, agentId);
@@ -62,7 +63,7 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from orders where state= '"
-				+ Constant.ORDER_STATE_ACCEPTED_ACCOM + "' and agentId=?";
+				+ Constant.STATE_ORDER_COMPLETE + "' and agentId=?";
 		try {
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, agentId);
@@ -104,7 +105,7 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, order.getNum());
 			pstmt.setDouble(2, order.getCommission());
-			pstmt.setString(3, order.getState());
+			pstmt.setString(3, Constant.STATE_ORDER_PENDING);//订单初始状态为待审核
 			pstmt.setDate(4, order.getStartTime());
 			pstmt.setDate(5, order.getEndTime());
 			pstmt.setInt(6, order.getFarmlandId());
@@ -138,6 +139,9 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 
 	@Override
 	public boolean cancelOrder(int agentId, int id) {
+		OrderDao ordersDao=new OrdersDaoImpl();
+		
+		
 		// 此处要判断订单有没有被委派给农机主，如果已被委派，那么就不能取消，只能取消审核中的订单
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
@@ -149,9 +153,8 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 			pstmt.setInt(1, id);
 			pstmt.setInt(2, agentId);
 
-			// 订单已被农机主接受，不能取消
-			// isOrderAcceptedByMachineOwner()
-			if (isOrderAcceptedByMachineOwner()) {
+			// 订单已被农机主接受或者已被推送，不能取消
+			if (ordersDao.getOrderState(id)!=Constant.STATE_ORDER_ASSIGNMENT||ordersDao.getOrderState(id)!=Constant.STATE_ORDER_PENDING) {
 				return false;
 			} else {
 				int i = pstmt.executeUpdate();
