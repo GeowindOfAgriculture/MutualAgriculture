@@ -13,7 +13,6 @@ public class Farmland implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int id;// 主键
-	private int farmlandPicId;// 农田图片id
 	private String location;// 农田地理位置
 	private int size;// 农田大小
 	private int maturity;// 成熟度
@@ -30,13 +29,6 @@ public class Farmland implements Serializable {
 		this.id = id;
 	}
 
-	public int getFarmlandPicId() {
-		return farmlandPicId;
-	}
-
-	public void setFarmlandPicId(int farmlandPicId) {
-		this.farmlandPicId = farmlandPicId;
-	}
 
 	public String getLocation() {
 		return location;
@@ -96,11 +88,11 @@ public class Farmland implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Farmland [id=" + id + ", farmlandPicId=" + farmlandPicId
-				+ ", location=" + location + ", size=" + size + ", maturity="
-				+ maturity + ", perPrice=" + perPrice + ", type=" + type
-				+ ", description=" + description + ", harvestTime="
-				+ harvestTime + "]";
+		return "Farmland [id=" + id + ", location=" + location + ", size="
+				+ size + ", maturity=" + maturity + ", perPrice=" + perPrice
+				+ ", type=" + type + ", description=" + description
+				+ ", harvestTime=" + harvestTime + "]";
 	}
 
+	
 }

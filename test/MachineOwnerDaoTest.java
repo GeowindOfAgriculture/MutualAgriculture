@@ -3,6 +3,7 @@ package test;
 import org.junit.Test;
 
 import com.usc.bean.MachineOwner;
+import com.usc.daoimpl.MachineDao;
 import com.usc.daoimpl.MachineOwnerDao;
 
 public class MachineOwnerDaoTest {
@@ -42,6 +43,13 @@ public class MachineOwnerDaoTest {
 		MachineOwner owner = new MachineOwner();
 		owner.setId(2);
 		System.out.println(dao.selectMachineOwerInfo(owner));
+	}
+	
+	@Test
+	public void testgetMachineOwnerIdByTel(){
+		MachineDao dao=new MachineDao();
+		int id= dao.getMachineOwnerIdByTel("1234");
+		System.out.println(id);
 	}
 
 }

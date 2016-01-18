@@ -50,8 +50,7 @@ public class Admin implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Admins [id=" + id + ", name=" + name + ", password=" + password
-				+ ", tel=" + tel + "]";
+		return "Admins [id=" + id + ", name=" + name + ", password=" + password + ", tel=" + tel + "]";
 	}
 
 }

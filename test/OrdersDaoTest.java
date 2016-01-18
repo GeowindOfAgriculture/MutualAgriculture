@@ -12,7 +12,7 @@ public class OrdersDaoTest {
 	/**
 	 * 单测获取历史订单
 	 */
-//	 @Test
+	// @Test
 	public void selectOrderHistory() {
 		OrdersDao dao = new OrdersDao();
 		MachineOwner owner = new MachineOwner();
@@ -26,7 +26,7 @@ public class OrdersDaoTest {
 	/**
 	 * 单测被推送的订单
 	 */
-//	@Test
+	// @Test
 	public void selectPushedOrder() {
 		OrdersDao dao = new OrdersDao();
 		MachineOwner owner = new MachineOwner();
@@ -40,33 +40,51 @@ public class OrdersDaoTest {
 	/**
 	 * 单测 接收订单
 	 */
-//	@Test
-	public void acceptOrder(){
+	// @Test
+	public void acceptOrder() {
 		OrdersDao dao = new OrdersDao();
 		MachineOwner owner = new MachineOwner();
 		owner.setId(2);
-//		ArrayList<Order> list = dao.selectOrderHistory(owner);
+		// ArrayList<Order> list = dao.selectOrderHistory(owner);
 		ArrayList<Order> list = dao.selectPushedOrder(owner);
 		System.out.println(list);
 		for (Order order : list) {
 			System.out.println(dao.acceptOrder(order));
 		}
 	}
+
 	/**
 	 * 单测 拒绝
 	 */
-	@Test
-	public void refuseOrder(){
+//	@Test
+	public void refuseOrder() {
 		System.out.println("======");
 		OrdersDao dao = new OrdersDao();
 		MachineOwner owner = new MachineOwner();
 		owner.setId(1);
-//		ArrayList<Order> list = dao.selectOrderHistory(owner);
+		// ArrayList<Order> list = dao.selectOrderHistory(owner);
 		ArrayList<Order> list = dao.selectPushedOrder(owner);
 		for (Order order : list) {
 			System.out.println(order);
 			System.out.println(dao.refuseOrder(order));
 		}
 	}
-	
+
+	/**
+	 * 查询全部订单
+	 */
+	@Test
+	public void selectAll() {
+		OrdersDao dao = new OrdersDao();
+		System.out.println("++++");
+//		System.out.println(dao.selectAllOrder(null));
+//		System.out.println(dao.selectAllOrder("pushed"));
+//		System.out.println(dao.selectAllOrder("Pending"));
+//		System.out.println(dao.selectAllOrder("complete"));
+//		System.out.println(dao.selectAllOrder("assignment"));
+//		System.out.println(dao.selectAllOrder("ahsdu"));
+//		System.out.println(dao.selectAllOrder(""));
+//		System.out.println(dao.selectAllOrder());
+	}
+
 }

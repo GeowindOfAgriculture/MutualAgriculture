@@ -18,6 +18,7 @@ public class FarmlandPic implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String url;// 农机图片路径
+	private int farmlandId;//农田id
 	private String remarks1;
 	private String remarks2;
 	private String remarks3;
@@ -77,10 +78,21 @@ public class FarmlandPic implements Serializable {
 		this.remarks3 = remarks3;
 	}
 
+	public int getFarmlandId() {
+		return farmlandId;
+	}
+
+	public void setFarmlandId(int farmlandId) {
+		this.farmlandId = farmlandId;
+	}
+
 	@Override
 	public String toString() {
-		return "FarmlandPic [id=" + id + ", url=" + url + ", remarks1=" + remarks1 + ", remarks2=" + remarks2
-				+ ", remarks3=" + remarks3 + "]";
+		return "FarmlandPic [id=" + id + ", url=" + url + ", farmlandId="
+				+ farmlandId + ", remarks1=" + remarks1 + ", remarks2="
+				+ remarks2 + ", remarks3=" + remarks3 + "]";
 	}
+
+	
 
 }

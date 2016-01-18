@@ -1,21 +1,18 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
 import java.util.List;
-
-import javax.faces.context.Flash;
 
 import org.junit.Test;
 
 import com.usc.bean.Agent;
 import com.usc.bean.Order;
-import com.usc.dao.AgentDao;
+import com.usc.dao.AgentDAO;
 import com.usc.dao.AgentDoOrdersDao;
 import com.usc.daoimpl.AgentDaoImpl;
 import com.usc.daoimpl.AgentDoOrdersDaoImpl;
-import com.usc.util.Constant;
 /**
  * 
  * @author zhao
@@ -23,7 +20,7 @@ import com.usc.util.Constant;
  */
 public class TestAgentDaoImpl {
 	
-	AgentDao agentDAO = new AgentDaoImpl();
+	AgentDAO agentDAO = new AgentDaoImpl();
 	AgentDoOrdersDao agentDoOrdersDao=new AgentDoOrdersDaoImpl();
 	
 

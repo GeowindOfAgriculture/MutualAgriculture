@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.usc.bean.Agent;
-import com.usc.dao.AgentDao;
+import com.usc.dao.AgentDAO;
 import com.usc.util.Constant;
 import com.usc.util.DBHelper;
 
@@ -16,16 +16,16 @@ import com.usc.util.DBHelper;
  * @author zhao
  * 
  */
-public class AgentDaoImpl implements AgentDao {
+public class AgentDaoImpl implements AgentDAO {
 
 	@Override
-	public boolean login(String username, String password) {
+	public boolean login(String tel, String password) {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select " + Constant.PASSWORD_AGENT + "from"
-				+ Constant.TB_AGENT + "where" + Constant.NAME_AGENT + "="
-				+ username;
+				+ Constant.TB_AGENT + "where" + Constant.TEL_AGENT + "="
+				+ tel;
 		try {
 			pstmt = connection.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -110,7 +110,7 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	@Override
-	public boolean isAgentUsernameRegisted(String username) {
+	public boolean isAgentUsernameRegisted(String name) {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -118,7 +118,7 @@ public class AgentDaoImpl implements AgentDao {
 		try {
 
 			pstmt = connection.prepareStatement(sql);
-			pstmt.setString(1, username);
+			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -169,8 +169,6 @@ public class AgentDaoImpl implements AgentDao {
 			pstmt.setString(2, agent.getPassword());
 			pstmt.setString(3, agent.getLocation());
 			pstmt.setInt(4, agent.getId());
-			// 修改信息前，判断用户名是否已被注册
-			// if(!isAgentRegisted(agent.getName())){
 			int i = pstmt.executeUpdate();
 			connection.commit();
 			if (i == 1) {
@@ -179,9 +177,6 @@ public class AgentDaoImpl implements AgentDao {
 			} else {
 				return false;
 			}
-			// }else {
-			// System.out.println("用户名已经被注册，请重新选择");
-			// }
 		} catch (SQLException e) {
 			try {
 				connection.rollback();

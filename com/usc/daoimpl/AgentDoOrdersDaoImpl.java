@@ -162,6 +162,7 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 				if (i == 1)
 					return true;
 			}
+
 		} catch (SQLException e) {
 			try {
 				connection.rollback();

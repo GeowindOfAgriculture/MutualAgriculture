@@ -12,8 +12,8 @@ public interface FarmlandDao {
 	/**
 	 * 添加农田信息到农田表
 	 * @param farmland
-	 * @return
+	 * @return 刚插入农田信息的id
 	 */
-	public boolean addFarmlandInfo(Farmland farmland);
+	public int addFarmlandInfo(Farmland farmland);
 	
 }

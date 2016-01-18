@@ -204,4 +204,13 @@ public final class Constant {
 	/**数据库订单状态  待分配 */
 	public static final String STATE_ORDER_ASSIGNMENT= "assignment";
 
+	/**电话号码不存在*/
+	public static final String 	TELNOTEXIST="该电话号码不存在！";
+	/**电话号码已经村存在*/
+	public static final String 	TELEXIST="该电话号码已经存在！";
+	/**密码错误*/
+	public static final String 	PSWWRONG = "密码错误！";
+	/**sql执行错误*/
+	public static final String 	SQLWRONG = "SQL执行错误！";
+	
 }

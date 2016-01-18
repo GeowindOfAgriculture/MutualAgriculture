@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 农机主action操作 -->
+	<!-- 使用返回寄送字符形式 ， -->
+	<package name="machine" extends="json-default" namespace="/"> <!--需要将struts-default改为json-default -->
+		<!-- 农机主登陆 -->
+		<action name="login" class="com.usc.action.MachineOwnerAction"
+			method="login">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		<!-- 农机主注册 -->
+		<action name="register" class="com.usc.action.MachineOwnerAction"
+			method="register">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		<!-- 农机主查询个人信息 -->
+		<action name="selectMachineOwerInfo" class="com.usc.action.MachineOwnerAction"
+			method="selectMachineOwerInfo">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		<!-- 农机主查询被推送的订单 -->
+		<action name="selectPushedOrder" class="com.usc.action.MachineOwnerAction"
+			method="selectPushedOrder">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		<!-- 农机主查看历史订单 -->
+		<action name="selectOrderHistory" class="com.usc.action.MachineOwnerAction"
+			method="selectOrderHistory">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+		<!-- 农机主接收或者拒绝被推送的订单-->
+		<action name="MOIsAccept" class="com.usc.action.MachineOwnerAction"
+			method="MOIsAccept">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面 -->
+		</action>
+	</package>
+
+
+</struts>    

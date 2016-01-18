@@ -1,4 +1,9 @@
 package com.usc.dao;
+
+import java.util.List;
+
+import com.usc.bean.FarmlandPic;
+
 /**
  * 
  * @author   zhao
@@ -7,15 +12,15 @@ package com.usc.dao;
  */
 public interface FarmlandPicDao {
 	/**
-	 * 通过存储url，存储农田图片
-	 * @param url 图片url
-	 * @return 刚插入记录id 若返回-1，则表示插入失败 
+	 * 存储农田图片信息
+	 * @param pic 农田图片实体类
+	 * @return
 	 */
-	public int storeFarmlandPicToURL(String url);
+	public boolean storeFarmlandPicToURL(FarmlandPic pic);
 	/**
-	 * 
+	 * 获取农田所有图片的url
 	 * @param farmlandId
-	 * @return url
+	 * @return url的集合
 	 */
-	public String getFarmlandPicURLByFarmlandId(int farmlandId);
+	public List<String> getFarmlandPicURLByFarmlandId(int farmlandId);
 }

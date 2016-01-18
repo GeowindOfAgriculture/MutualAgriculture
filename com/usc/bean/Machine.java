@@ -17,10 +17,10 @@ public class Machine implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
-	private int machinePicId;// 农机图片id
 	private String model;// 型号
 	private int userAge;// 使用年限
-	private int des;// 描述
+	private String des;// 描述
+	private int machineOwnerId;//农机主id
 	private String remarks1;
 	private String remarks2;
 	private String remarks3;
@@ -37,23 +37,14 @@ public class Machine implements Serializable {
 		this.id = id;
 	}
 
-	/**
-	 * 获取 农机图片id
-	 * 
-	 * @return 农机图片id
-	 */
-	public int getMachinePicId() {
-		return machinePicId;
+	
+
+	public int getMachineOwnerId() {
+		return machineOwnerId;
 	}
 
-	/**
-	 * 设置农机图片id
-	 * 
-	 * @param machinePicId
-	 *            农机图片id
-	 */
-	public void setMachinePicId(int machinePicId) {
-		this.machinePicId = machinePicId;
+	public void setMachineOwnerId(int machineOwnerId) {
+		this.machineOwnerId = machineOwnerId;
 	}
 
 	/**
@@ -99,7 +90,7 @@ public class Machine implements Serializable {
 	 * 
 	 * @return 描述
 	 */
-	public int getDes() {
+	public String getDes() {
 		return des;
 	}
 
@@ -109,7 +100,7 @@ public class Machine implements Serializable {
 	 * @param des
 	 *            描述
 	 */
-	public void setDes(int des) {
+	public void setDes(String des) {
 		this.des = des;
 	}
 
@@ -139,8 +130,11 @@ public class Machine implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Machine [id=" + id + ", machinePicId=" + machinePicId + ", model=" + model + ", userAge=" + userAge
-				+ ", des=" + des + ", remarks1=" + remarks1 + ", remarks2=" + remarks2 + ", remarks3=" + remarks3 + "]";
+		return "Machine [id=" + id + ", model=" + model + ", userAge="
+				+ userAge + ", des=" + des + ", machineOwnerId="
+				+ machineOwnerId + ", remarks1=" + remarks1 + ", remarks2="
+				+ remarks2 + ", remarks3=" + remarks3 + "]";
 	}
+
 
 }

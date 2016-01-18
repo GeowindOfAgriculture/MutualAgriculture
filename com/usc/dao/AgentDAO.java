@@ -8,7 +8,7 @@ import com.usc.bean.Agent;
  * @author zhao
  * 
  */
-public interface AgentDao {
+public interface AgentDAO {
 	/**
 	 * 登陆
 	 * 
@@ -16,7 +16,7 @@ public interface AgentDao {
 	 * @param password
 	 * @return
 	 */
-	public boolean login(String username, String password);
+	public boolean login(String tel, String password);
 
 	/**
 	 * 注册
@@ -38,12 +38,14 @@ public interface AgentDao {
 
 	/**
 	 * 查看经纪人用户名是否被注册
-	 * 
+	 * @param tel
 	 * @return
 	 */
-	public boolean isAgentUsernameRegisted(String username);
+	public boolean isAgentUsernameRegisted(String tel);
+
 	/**
 	 * 查看经纪人手机号是否被注册过，手机号具有唯一性
+	 * 
 	 * @param tel
 	 * @return
 	 */
