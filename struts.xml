@@ -3,6 +3,7 @@
 <struts>
 	<!-- 导入基本的设置文件 -->
 	<include file="action_MachineOwner.xml"></include>
-	<include file="action_machine.xml"></include>
+	
 	<include file="configuration.xml"></include>
+	<include file="action_Agent.xml"></include>
 </struts>    

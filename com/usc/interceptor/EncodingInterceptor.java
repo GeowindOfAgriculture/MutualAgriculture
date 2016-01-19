@@ -36,6 +36,8 @@ public class EncodingInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation arg0) throws Exception {
+		HttpServletRequest request=ServletActionContext.getRequest();
+		request.setCharacterEncoding("utf-8");
 		//获取HttpServletResponse对象
 		HttpServletResponse response = ServletActionContext.getResponse();
 		// 字符集转换

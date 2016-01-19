@@ -206,11 +206,17 @@ public final class Constant {
 
 	/**电话号码不存在*/
 	public static final String 	TELNOTEXIST="该电话号码不存在！";
-	/**电话号码已经村存在*/
+	/**电话号码已经存在*/
 	public static final String 	TELEXIST="该电话号码已经存在！";
 	/**密码错误*/
 	public static final String 	PSWWRONG = "密码错误！";
 	/**sql执行错误*/
 	public static final String 	SQLWRONG = "SQL执行错误！";
 	
+	/** 注册成功*/
+	public static final String REGISTER_SUCCESS="注册成功";
+	/** 注册失败*/
+	public static final String REGISTER_FAILURE="注册失败，请再试一遍";
+	/** 请求参数为null*/
+	public static final String PARA_NULL="请求参数为null";
 }

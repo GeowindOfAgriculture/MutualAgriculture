@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 经纪人action操作 -->
+	<package name="agent" extends="struts-default" namespace="/">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name="encodingInterceptor2"
+				class="com.usc.interceptor.EncodingInterceptor" />
+			<interceptor-stack name="encodingTinterceptors2">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="encodingInterceptor2" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认拦截器 -->
+		<default-interceptor-ref name="encodingTinterceptors2" />
+		
+		<!-- 经纪人登陆 -->
+		<action name="agentRegister" class="com.usc.action.AgentAction" method="registerAgent"></action>
+	</package>
+</struts>
