@@ -219,4 +219,26 @@ public final class Constant {
 	public static final String REGISTER_FAILURE="注册失败，请再试一遍";
 	/** 请求参数为null*/
 	public static final String PARA_NULL="请求参数为null";
+	/** 登录成功*/
+	public static final String LOGIN_SUCCESS="登陆成功";
+	/** 获取信息失败*/
+	public static final String GETINFO_FAILUR="获取信息失败";
+	/** 插入图片出现异常*/
+	public static final String INSERTPIC_WRONG="插入图片异常";
+	/** 发布订单成功*/
+	public static final String PUBLISH_ORDER_SUCCESS="发布订单成功";
+	/** 发布订单失败*/
+	public static final String PUBLISH_ORDER_FAILURE="发布订单失败";
+	
+	/** 订单状态查询失败，请检查订单id*/
+	public static final String GET_ORDERSTATE_FAILURE="订单状态查询失败";
+	
+	/** 没有查到订单信息*/
+	public static final String NO_ORDERS="没有订单信息查到";
+	/** 更新经纪人信息成功*/
+	public static final String UPDATEAGENTINFO_SUCCESS="更新经纪人信息成功";
+	/** 取消订单成功*/
+	public static final String CANCELORDER_SUCCESS="成功取消订单";
+	/** 因为订单不在初试状态，不能取消*/
+	public static final String CANCELORDER_FAILURE="订单不处于初始状态，不能取消哦";
 }

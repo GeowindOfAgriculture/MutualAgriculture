@@ -11,17 +11,17 @@ public class AgentResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private boolean success;
-	private String message;
+	private Object message;
 	public boolean isSuccess() {
 		return success;
 	}
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
-	public String getMessage() {
+	public Object getMessage() {
 		return message;
 	}
-	public void setMessage(String message) {
+	public void setMessage(Object message) {
 		this.message = message;
 	}
 	

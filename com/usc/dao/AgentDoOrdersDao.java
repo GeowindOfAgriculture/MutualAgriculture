@@ -2,7 +2,6 @@ package com.usc.dao;
 
 import java.util.List;
 
-import com.usc.bean.Agent;
 import com.usc.bean.Order;
 /**
  * 经纪人操作订单相关接口
@@ -33,13 +32,11 @@ public interface AgentDoOrdersDao {
 	/**
 	 * 撤销订单
 	 * 
-	 * @param agentId
-	 *            经纪人id
 	 * @param orderId
 	 *            订单id
 	 * @return
 	 */
-	public boolean cancelOrder(int agentId, int orderId);
+	public boolean cancelOrder(int orderId);
 	/**
 	 * 获取经纪人订单历史纪录(包含完成和未完成的订单)
 	 * @param agentId 

@@ -12,7 +12,7 @@ public interface AgentDAO {
 	/**
 	 * 登陆
 	 * 
-	 * @param username
+	 * @param tel
 	 * @param password
 	 * @return
 	 */
@@ -30,11 +30,11 @@ public interface AgentDAO {
 	/**
 	 * 获取经纪人信息
 	 * 
-	 * @param id
-	 *            经纪人id
+	 * @param tel
+	 *            经纪人tel
 	 * @return
 	 */
-	public Agent getAgentInfoById(int id);
+	public Agent getAgentInfoByTel(String tel);
 
 	/**
 	 * 查看经纪人用户名是否被注册

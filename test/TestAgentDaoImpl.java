@@ -23,7 +23,13 @@ public class TestAgentDaoImpl {
 	AgentDAO agentDAO = new AgentDaoImpl();
 	AgentDoOrdersDao agentDoOrdersDao=new AgentDoOrdersDaoImpl();
 	
-
+	@Test
+	public void testAgentLogin(){
+		boolean flag= agentDAO.login("123456", "123456");
+		System.out.println(flag);
+	}
+	
+	
 	@Test
 	public void testRegist() {
 		Agent agent=new Agent();
@@ -51,8 +57,8 @@ public class TestAgentDaoImpl {
 	}
 	
 	@Test
-	public void testGetAgentById(){
-		Agent agent= agentDAO.getAgentInfoById(7);
+	public void testGetAgentByTel(){
+		Agent agent= agentDAO.getAgentInfoByTel("123456");
 		System.out.println(agent);
 	}
 	
@@ -64,7 +70,7 @@ public class TestAgentDaoImpl {
 		order.setCommission(1000000);
 		order.setEndTime(new Date(new java.util.Date().getTime()));
 		order.setFarmlandId(1);
-		order.setMachineOwnerId(1);
+		//order.setMachineOwnerId(1);
 		order.setNum(10);
 		order.setStartTime(new Date(new java.util.Date().getTime()));
 		
@@ -86,7 +92,7 @@ public class TestAgentDaoImpl {
 	
 	@Test
 	public void TestCancelOrder(){
-		boolean flag= agentDoOrdersDao.cancelOrder(7, 2);
+		boolean flag= agentDoOrdersDao.cancelOrder(1);
 		assertEquals(true, flag);
 	}
 	

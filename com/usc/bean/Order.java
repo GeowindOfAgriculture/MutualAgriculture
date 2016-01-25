@@ -21,6 +21,18 @@ public class Order implements Serializable {
 	private int farmlandId;// 农田id
 	private int agentId;// 经纪人id
 	private int machineOwnerId;// 农机主id
+	
+	private Farmland farmland;//和订单相关的农田信息
+	
+	
+
+	public Farmland getFarmland() {
+		return farmland;
+	}
+
+	public void setFarmland(Farmland farmland) {
+		this.farmland = farmland;
+	}
 
 	public int getId() {
 		return id;

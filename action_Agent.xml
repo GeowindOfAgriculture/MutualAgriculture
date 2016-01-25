@@ -15,7 +15,28 @@
 		<!-- 默认拦截器 -->
 		<default-interceptor-ref name="encodingTinterceptors2" />
 		
-		<!-- 经纪人登陆 -->
+		<!-- 经纪人注册 -->
 		<action name="agentRegister" class="com.usc.action.AgentAction" method="registerAgent"></action>
+		
+		<!-- 经纪人登录 -->
+		<action name="agentLogin" class="com.usc.action.AgentAction" method="loginAgent"></action>
+		
+		<!-- 查看经纪人信息 -->
+		<action name="getAgentInfo" class="com.usc.action.AgentAction" method="getAgentInfo"></action>
+		
+		<!-- 经纪人发布订单 -->
+		<action name="publishOrder" class="com.usc.action.AgentAction" method="publishOrder"></action>
+		
+		<!-- 查看订单状态 -->
+		<action name="getOrderState" class="com.usc.action.AgentAction" method="getOrderState"></action>
+		
+		<!-- 经纪人获取历时订单信息，包含完成的和未完成的 -->
+		<action name="getHistoryOrders" class="com.usc.action.AgentAction" method="getHistoryOrders"></action>
+		
+		<!-- 更新经纪人信息 -->
+		<action name="updateAgentInfo" class="com.usc.action.AgentAction" method="updateAgentInfo"></action>
+		
+		<!-- 经纪人 -->
+		<action name="cancelOrder" class="com.usc.action.AgentAction" method="cancelOrder"></action>
 	</package>
 </struts>

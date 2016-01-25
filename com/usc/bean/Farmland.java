@@ -2,6 +2,7 @@ package com.usc.bean;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * 农田实体类
@@ -20,6 +21,18 @@ public class Farmland implements Serializable {
 	private String type;// 种类
 	private String description;// 农田描述
 	private Date harvestTime;// 预计收割时间
+	
+	private List<FarmlandPic> farmlandPics;//农田相关的农田图片
+	
+	
+
+	public List<FarmlandPic> getFarmlandPics() {
+		return farmlandPics;
+	}
+
+	public void setFarmlandPics(List<FarmlandPic> farmlandPics) {
+		this.farmlandPics = farmlandPics;
+	}
 
 	public int getId() {
 		return id;

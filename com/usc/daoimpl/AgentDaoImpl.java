@@ -23,11 +23,11 @@ public class AgentDaoImpl implements AgentDAO {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select " + Constant.PASSWORD_AGENT + "from"
-				+ Constant.TB_AGENT + "where" + Constant.TEL_AGENT + "="
-				+ tel;
+		String sql = "select " + Constant.PASSWORD_AGENT + " from "
+				+ Constant.TB_AGENT + " where " + Constant.TEL_AGENT + "=?";
 		try {
 			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, tel);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String psd = rs.getString(Constant.PASSWORD_AGENT);
@@ -81,14 +81,14 @@ public class AgentDaoImpl implements AgentDAO {
 	}
 
 	@Override
-	public Agent getAgentInfoById(int id) {
+	public Agent getAgentInfoByTel(String tel) {
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from agent where id=?";
+		String sql = "select * from agent where tel=?";
 		try {
 			pstmt = connection.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setString(1, tel);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Agent agent = new Agent();
@@ -160,7 +160,7 @@ public class AgentDaoImpl implements AgentDAO {
 		ResultSet rs = null;
 
 		String updateSql = "update agent set name=?,password=?,location=?"
-				+ " where id=?";
+				+ " where tel=?";
 
 		try {
 			connection.setAutoCommit(false);
@@ -168,7 +168,7 @@ public class AgentDaoImpl implements AgentDAO {
 			pstmt.setString(1, agent.getName());
 			pstmt.setString(2, agent.getPassword());
 			pstmt.setString(3, agent.getLocation());
-			pstmt.setInt(4, agent.getId());
+			pstmt.setString(4, agent.getTel());
 			int i = pstmt.executeUpdate();
 			connection.commit();
 			if (i == 1) {

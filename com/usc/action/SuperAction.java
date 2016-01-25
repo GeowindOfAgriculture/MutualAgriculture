@@ -2,6 +2,7 @@ package com.usc.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,11 @@ public class SuperAction extends ActionSupport implements ServletRequestAware,
 	@Override
 	public void setServletRequest(HttpServletRequest arg0) {
 		request = arg0;
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

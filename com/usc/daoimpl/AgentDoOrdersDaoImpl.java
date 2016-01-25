@@ -138,23 +138,21 @@ public class AgentDoOrdersDaoImpl implements AgentDoOrdersDao {
 	}
 
 	@Override
-	public boolean cancelOrder(int agentId, int id) {
+	public boolean cancelOrder(int id) {
 		OrderDao ordersDao=new OrdersDaoImpl();
-		
 		
 		// 此处要判断订单有没有被委派给农机主，如果已被委派，那么就不能取消，只能取消审核中的订单
 		Connection connection = DBHelper.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "delete  from orders where id=? and agentId=?";
+		String sql = "delete  from orders where id=?";
 		try {
 			connection.setAutoCommit(false);
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			pstmt.setInt(2, agentId);
-
+			
 			// 订单已被农机主接受或者已被推送，不能取消
-			if (ordersDao.getOrderState(id)!=Constant.STATE_ORDER_ASSIGNMENT||ordersDao.getOrderState(id)!=Constant.STATE_ORDER_PENDING) {
+			if (ordersDao.getOrderState(id).equals(Constant.STATE_ORDER_ACCEPT)||ordersDao.getOrderState(id).equals(Constant.STATE_ORDER_COMPLETE)||ordersDao.getOrderState(id).equals(Constant.STATE_ORDER_PUSHED)) {
 				return false;
 			} else {
 				int i = pstmt.executeUpdate();
